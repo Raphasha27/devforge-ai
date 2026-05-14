@@ -1,0 +1,35 @@
+version: "3.9"
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - GITHUB_TOKEN=${GITHUB_TOKEN}
+    volumes:
+      - ./backend:/app
+    command: uvicorn app.main:app --host 0.0.0.0 --reload
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5180:5173"
+    volumes:
+      - ./frontend:/app
+    command: npm run dev -- --host
+
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: devforge
+      POSTGRES_PASSWORD: devforge
+      POSTGRES_DB: devforge
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
