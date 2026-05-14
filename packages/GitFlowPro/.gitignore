@@ -20,3 +20,8 @@ node_modules/
 
 # Logs
 *.log
+
+# Local operational files
+scratch/
+protection.json
+dashboard.html
