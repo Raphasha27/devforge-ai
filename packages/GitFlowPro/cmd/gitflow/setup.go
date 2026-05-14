@@ -16,7 +16,7 @@ func handleSetup() {
 	}
 
 	preCommitPath := filepath.Join(hookDir, "pre-commit")
-	
+
 	hookScript := `#!/bin/sh
 # GitFlowPro Pre-Commit Hook
 
