@@ -5,6 +5,12 @@ on:
     - cron: '0 9 * * 1' # Monday 09:00 UTC
   workflow_dispatch:
 
+permissions:
+  contents: read
+  issues: read
+  pull-requests: read
+  actions: read
+
 jobs:
   report:
     name: Generate Report

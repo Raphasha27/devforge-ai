@@ -17,8 +17,10 @@ GitFlowPro is a high-performance automation suite built in **Go**. It transforms
 - **Quality Gates**: Multi-stage validation for Go, Node, and Python environments.
 
 ### 3. 🛡️ Security & Compliance
-- **Continuous Scanning**: Real-time CodeQL analysis and dependency auditing.
-- **Reviewer Assignment**: Intelligent assignment of reviewers based on `CODEOWNERS` and expertise.
+- **CodeQL Scanning**: Enterprise-grade static analysis to detect vulnerabilities in real-time.
+- **Secret Protection**: Automated Gitleaks scanning to prevent credential exposure.
+- **Principle of Least Privilege**: All workflows run with strictly scoped GitHub permissions.
+- **Reviewer Assignment**: Intelligent assignment of reviewers based on `CODEOWNERS`.
 
 ### 4. 📊 Analytics & Reporting
 - **Weekly Pulse**: Automated reports detailing PR velocity, issue response times, and build health.
