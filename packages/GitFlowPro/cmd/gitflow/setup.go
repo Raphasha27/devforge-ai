@@ -16,7 +16,7 @@ func handleSetup() {
 	}
 
 	preCommitPath := filepath.Join(hookDir, "pre-commit")
-	postPushPath := filepath.Join(hookDir, "post-push")
+	prePushPath := filepath.Join(hookDir, "pre-push")
 
 	preCommitScript := `#!/bin/sh
 # GitFlowPro Pre-Commit Hook
@@ -33,8 +33,8 @@ fi
 echo "✅ Quality gates passed!"
 `
 
-	postPushScript := `#!/bin/sh
-# GitFlowPro Post-Push Hook
+	prePushScript := `#!/bin/sh
+# GitFlowPro Pre-Push Hook
 SHA=$(git rev-parse HEAD)
 REPO="Raphasha27/GitFlowPro"
 TOKEN=$(git config --get gitflowpro.token)
@@ -73,13 +73,13 @@ echo "[GitFlowPro] All checks cleared green!"
 		return
 	}
 
-	err = os.WriteFile(postPushPath, []byte(postPushScript), 0755)
+	err = os.WriteFile(prePushPath, []byte(prePushScript), 0755)
 	if err != nil {
-		fmt.Printf("❌ Error writing post-push hook: %v\n", err)
+		fmt.Printf("❌ Error writing pre-push hook: %v\n", err)
 		return
 	}
 
 	fmt.Println("✅ Local Git hooks installed successfully!")
 	fmt.Println("   - Pre-commit: Auto-formats Go and Python code.")
-	fmt.Println("   - Post-push: Auto-clears GitHub Actions billing locks from local machine.")
+	fmt.Println("   - Pre-push: Auto-clears GitHub Actions billing locks from local machine.")
 }
