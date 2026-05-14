@@ -5,3 +5,5 @@ PyGithub
 black
 ruff
 pytest
+
+openai
