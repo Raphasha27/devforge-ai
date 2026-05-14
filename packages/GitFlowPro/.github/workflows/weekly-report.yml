@@ -18,11 +18,11 @@ jobs:
         with:
           go-version: '1.21'
 
-      - name: Build CLI
-        run: go build -o gitflow ./cmd/gitflow
-
-      - name: Run Report
+      - name: Run Weekly Report
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO_NAME: ${{ github.repository }}
-        run: ./gitflow report
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: |
+          pip install requests
+          python scripts/weekly_report.py
