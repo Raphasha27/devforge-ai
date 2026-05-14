@@ -39,5 +39,6 @@ func printUsage() {
 	fmt.Println("  commit     Generate an AI commit message based on staged changes")
 	fmt.Println("  report     Generate a weekly repository status report")
 	fmt.Println("  analytics  Run repository performance analytics")
+	fmt.Println("  setup      Install local Git hooks for auto-formatting")
 	fmt.Println("  help       Show this help message")
 }
