@@ -1,9 +1,9 @@
 name: Deploy Dashboard
 
 on:
-  schedule:
-    - cron: '0 * * * *' # Every hour
   workflow_dispatch:
+  schedule:
+    - cron: '0 6 * * 1' # Every Monday at 6 AM UTC - not on every push
 
 permissions:
   contents: read
@@ -18,10 +18,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
       - name: Set up Go
-        uses: actions/setup-go@v6
+        uses: actions/setup-go@v5
         with:
           go-version: '1.21'
 
@@ -35,13 +35,13 @@ jobs:
           mv dashboard.html public/index.html
 
       - name: Setup Pages
-        uses: actions/configure-pages@v6
-        
+        uses: actions/configure-pages@v4
+
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v5
+        uses: actions/upload-pages-artifact@v3
         with:
           path: './public'
-          
+
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v5
+        uses: actions/deploy-pages@v4

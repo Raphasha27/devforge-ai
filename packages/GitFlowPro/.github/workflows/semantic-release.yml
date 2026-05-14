@@ -1,9 +1,10 @@
 name: Semantic Release
 
 on:
+  workflow_dispatch: # Only run manually or via API - prevents billing failures on every push
   push:
-    branches:
-      - main
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'  # Only trigger on explicit version tags
 
 jobs:
   release:
@@ -31,4 +32,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx semantic-release
-        continue-on-error: true  # Don't fail push if no releasable commits exist
