@@ -23,7 +23,7 @@ def get_pr_diff():
 
 def generate_ai_summary(diff):
     if not OPENAI_API_KEY:
-        return "⚠️ OpenAI API Key missing. Unable to generate AI summary."
+        return None
 
     # Heuristic fallback if diff is too large or for demonstration
     if len(diff) > 20000:
@@ -56,7 +56,7 @@ Diff:
         response.raise_for_status()
         return response.json()['choices'][0]['message']['content']
     except Exception as e:
-        return f"❌ AI Summary Error: {str(e)}\n\n(Fallback: Manual review required for this large diff)"
+        return None
 
 def post_comment(body):
     url = f"https://api.github.com/repos/{REPO}/issues/{PR_NUMBER}/comments"
@@ -71,6 +71,10 @@ def main():
     print(f"Generating AI Summary for PR #{PR_NUMBER}...")
     diff = get_pr_diff()
     summary = generate_ai_summary(diff)
+    
+    if summary is None:
+        print("LLM is not integrated or an error occurred. Skipping notification.")
+        sys.exit(0)
     
     full_comment = f"""### 🤖 GitFlowPro AI PR Insights
 
