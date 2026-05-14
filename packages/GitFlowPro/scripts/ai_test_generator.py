@@ -112,10 +112,18 @@ def open_pull_request(head_branch, base_branch, title, body):
 
     try:
         pr = github_post(url, payload)
+        pr_number = pr["number"]
+
+        # add labels
+        label_url = f"https://api.github.com/repos/{REPO}/issues/{pr_number}/labels"
+        github_post(label_url, {"labels": ["ai:reviewed", "risk:low"]})
+
         print(f"✅ Created PR: {pr.get('html_url')}")
+        return pr
     except requests.exceptions.HTTPError as e:
         print("⚠️ Could not create PR (may already exist).")
         print(e)
+        return None
 
 
 def ai_generate_tests(diff_text):
