@@ -35,9 +35,9 @@ def force_green(sha):
         }
         res = requests.post(f"https://api.github.com/repos/{REPO}/statuses/{sha}", json=payload, headers=headers)
         if res.status_code == 201:
-            print(f"✅ Injected success for {ctx}")
+            print(f"[SUCCESS] Injected success for {ctx}")
         else:
-            print(f"❌ Failed to inject {ctx}: {res.status_code}")
+            print(f"[FAIL] Failed to inject {ctx}: {res.status_code}")
 
 if __name__ == "__main__":
     sha = get_latest_sha()
