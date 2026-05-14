@@ -9,7 +9,7 @@ GitFlowPro is a high-performance automation suite built in **Go**. It transforms
 
 ### 1. 🤖 AI-Powered Intelligence
 - **AI Commit Generator**: Instantly generate semantic, descriptive commit messages based on your staged changes.
-- **PR Intelligence**: Automated summaries and risk assessments for incoming changes.
+- **AI PR Summarizer**: Automated summaries, risk assessments, and test suggestions for every Pull Request.
 
 ### 2. ⚡ Automation & Workflow
 - **Smart Labeler**: Categorize PRs and Issues automatically based on file paths and content analysis.

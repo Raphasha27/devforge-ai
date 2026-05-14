@@ -1,0 +1,32 @@
+name: AI PR Summary
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  summarize:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Dependencies
+        run: |
+          pip install requests
+
+      - name: Run AI Summarizer
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          REPO_NAME: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: python scripts/pr_ai_summarizer.py
