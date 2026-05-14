@@ -2,11 +2,11 @@ name: PR Checks
 
 on:
   pull_request:
-    branches: [main, master]
+    branches: [main]
 
 jobs:
-  test:
-    name: Build and Test
+  go-checks:
+    name: Go Quality Checks
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -18,21 +18,60 @@ jobs:
           go-version: '1.21'
           cache: true
 
-      - name: Install Dependencies
-        run: go mod download
-
-      - name: Build
+      - name: Build CLI
         run: go build -v ./cmd/gitflow
 
-      - name: Run Tests
+      - name: Run Go Tests
         run: go test -v ./...
 
-      - name: Post PR Summary
-        if: always()
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REPO_NAME: ${{ github.repository }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
+  python-checks:
+    name: Python Quality Checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Dependencies
         run: |
-          # Use our own CLI if we wanted to, but for now just a summary
-          echo "✅ Quality Gate Passed for GitFlowPro"
+          pip install -r requirements.txt
+
+      - name: Run Ruff Lint
+        run: |
+          ruff check .
+
+      - name: Run Black Format Check
+        run: |
+          black --check .
+
+      - name: Run Pytest (if tests exist)
+        run: |
+          if [ -d "tests" ]; then pytest; else echo "No tests folder found"; fi
+
+  node-checks:
+    name: Node Checks (Optional)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Dependencies
+        run: |
+          if [ -f package.json ]; then npm install; else echo "No package.json found"; fi
+
+      - name: Run Lint
+        run: |
+          if [ -f package.json ]; then npm run lint || true; fi
+
+      - name: Run Tests
+        run: |
+          if [ -f package.json ]; then npm test || true; fi
