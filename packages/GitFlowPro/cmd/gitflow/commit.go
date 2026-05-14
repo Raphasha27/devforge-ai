@@ -9,6 +9,7 @@ import (
 	"os"
 	"os/exec"
 	"strings"
+	"time"
 )
 
 func handleCommit() {
@@ -70,12 +71,18 @@ func generateCommitMessage(diff string) string {
 	req.Header.Set("Content-Type", "application/json")
 	req.Header.Set("Authorization", "Bearer "+apiKey)
 
-	client := &http.Client{}
+	client := &http.Client{Timeout: 10 * time.Second}
 	resp, err := client.Do(req)
 	if err != nil {
-		return "feat: update project logic"
+		fmt.Printf("⚠️ AI unavailable (%v). Falling back to heuristic generation.\n", err)
+		return fallbackMessage(diff)
 	}
 	defer resp.Body.Close()
+
+	if resp.StatusCode != http.StatusOK {
+		fmt.Printf("⚠️ AI returned status %d. Falling back to heuristic generation.\n", resp.StatusCode)
+		return fallbackMessage(diff)
+	}
 
 	body, _ := io.ReadAll(resp.Body)
 	var result struct {
@@ -87,8 +94,27 @@ func generateCommitMessage(diff string) string {
 	}
 
 	if err := json.Unmarshal(body, &result); err != nil || len(result.Choices) == 0 {
-		return "refactor: optimize repository internal components"
+		return fallbackMessage(diff)
 	}
 
 	return strings.TrimSpace(result.Choices[0].Message.Content)
+}
+
+func fallbackMessage(diff string) string {
+	if strings.Contains(diff, "README.md") {
+		return "docs: update project documentation"
+	}
+	if strings.Contains(diff, ".github/workflows") {
+		return "ci: update github actions workflow"
+	}
+	if strings.Contains(diff, "package.json") || strings.Contains(diff, "go.mod") {
+		return "chore: update dependencies"
+	}
+	if strings.Contains(diff, "test") {
+		return "test: add/update test cases"
+	}
+	if strings.Contains(diff, "func ") || strings.Contains(diff, "def ") {
+		return "feat: implement new core logic"
+	}
+	return "refactor: optimize internal components"
 }
