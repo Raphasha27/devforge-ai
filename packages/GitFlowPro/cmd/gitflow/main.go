@@ -20,6 +20,8 @@ func main() {
 		handleReport()
 	case "analytics":
 		handleAnalytics()
+	case "setup":
+		handleSetup()
 	case "help":
 		printUsage()
 	default:
