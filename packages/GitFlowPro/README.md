@@ -1,6 +1,11 @@
 # 🚀 GitFlowPro
 **The Ultimate Enterprise-Grade GitHub Automation & Intelligence Toolkit**
 
+[![Go Report Card](https://goreportcard.com/badge/github.com/Raphasha27/GitFlowPro)](https://goreportcard.com/report/github.com/Raphasha27/GitFlowPro)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+[![Security Scan](https://github.com/Raphasha27/GitFlowPro/actions/workflows/security-scan.yml/badge.svg)](https://github.com/Raphasha27/GitFlowPro/actions/workflows/security-scan.yml)
+
 GitFlowPro is a high-performance, security-first automation suite built in **Go**. It is designed to transform complex multi-repository environments into streamlined, self-managing, and intelligent workspaces. Whether you are managing a single project or an entire organization, GitFlowPro provides the tools you need to ensure code quality, security compliance, and developer productivity.
 
 ---
@@ -145,12 +150,18 @@ GitFlowPro/
 ---
 
 ## 🤝 Contributing
-We welcome contributions! Please see our [Contributing Guide](./docs/CONTRIBUTING.md) (coming soon) for details on how to submit PRs and report issues.
+We love our contributors! Whether you are fixing a bug, adding a feature, or improving documentation, your help is welcome.
+
+1. Read our [Contributing Guide](./CONTRIBUTING.md).
+2. Follow our [Code of Conduct](./CODE_OF_CONDUCT.md).
+3. Check the [Open Issues](https://github.com/Raphasha27/GitFlowPro/issues).
 
 ---
 
-## 📄 License
-This project is licensed under the **MIT License** - see the [LICENSE](./LICENSE) file for details.
+## ❤️ Community & Support
+*   **Issues**: For bug reports and feature requests.
+*   **Discussions**: For general questions and community sharing.
+*   **Security**: Please report vulnerabilities via the [Security Policy](./.github/SECURITY.md).
 
 ---
 <p align="center">
