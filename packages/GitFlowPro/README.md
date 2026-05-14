@@ -5,6 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 [![Security Scan](https://github.com/Raphasha27/GitFlowPro/actions/workflows/security-scan.yml/badge.svg)](https://github.com/Raphasha27/GitFlowPro/actions/workflows/security-scan.yml)
+![Coverage](https://img.shields.io/badge/dynamic/json?label=coverage&query=%24.coverage&suffix=%25&url=https://raw.githubusercontent.com/Raphasha27/GitFlowPro/main/badges/coverage.json)
 
 GitFlowPro is a high-performance, security-first automation suite built in **Go**. It is designed to transform complex multi-repository environments into streamlined, self-managing, and intelligent workspaces. Whether you are managing a single project or an entire organization, GitFlowPro provides the tools you need to ensure code quality, security compliance, and developer productivity.
 
