@@ -8,3 +8,6 @@ pytest
 pytest-cov
 
 openai
+
+pyyaml>=6.0.1
+requests>=2.31.0
