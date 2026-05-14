@@ -209,7 +209,7 @@ def main():
             head_branch=new_branch,
             base_branch=base_branch,
             title=f"test: AI-generated tests for PR #{PR_NUMBER}",
-            body=f\"\"\"## 🤖 RepoPilot AI Test Generator
+            body=f"""## 🤖 RepoPilot AI Test Generator
 
 This PR contains AI-generated tests for PR #{PR_NUMBER}.
 
@@ -218,7 +218,7 @@ This PR contains AI-generated tests for PR #{PR_NUMBER}.
 - Ensure coverage matches expected behavior.
 
 Linked PR: #{PR_NUMBER}
-\"\"\"
+"""
         )
     except Exception as e:
         print(f"❌ Error during AI test generation: {e}")
