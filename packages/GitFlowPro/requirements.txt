@@ -1,0 +1,7 @@
+requests
+python-dotenv
+PyGithub
+
+black
+ruff
+pytest
