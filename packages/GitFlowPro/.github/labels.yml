@@ -13,3 +13,15 @@
 - name: "ai:reviewed"
   color: "3498db"
   description: "Reviewed by RepoPilot AI"
+
+- name: "ai:block"
+  color: "000000"
+  description: "Blocked by RepoPilot AI (critical risk detected)"
+
+- name: "override:merge"
+  color: "8e44ad"
+  description: "Manually allow auto merge"
+
+- name: "override:block"
+  color: "c0392b"
+  description: "Manually block auto merge"

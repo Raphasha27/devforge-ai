@@ -217,12 +217,18 @@ Return JSON in this format:
         risk_level = ai_data.get("risk_level", "medium")
         risk_score = ai_data.get("risk_score", 50)
 
-        # Assign label based on risk
-        risk_label = f"risk:{risk_level}"
+        block_label_needed = False
+        if critical_hits:
+            block_label_needed = True
 
-        # Remove old risk labels then apply new one
         clear_risk_labels()
-        apply_labels([risk_label, "ai:reviewed"])
+
+        labels_to_apply = [risk_label, "ai:reviewed"]
+
+        if block_label_needed or risk_level.lower() == "high":
+            labels_to_apply.append("ai:block")
+
+        apply_labels(labels_to_apply)
 
         critical_section = ""
         if critical_hits:

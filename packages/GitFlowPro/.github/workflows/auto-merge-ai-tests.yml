@@ -1,4 +1,4 @@
-name: Auto Merge AI Test PRs
+name: Auto Merge AI Test PRs (Risk Gate)
 
 on:
   pull_request:
@@ -6,7 +6,20 @@ on:
 
 jobs:
   automerge:
-    if: startsWith(github.head_ref, 'ai/tests/') && contains(github.event.pull_request.labels.*.name, 'ai:reviewed')
+    if: |
+      startsWith(github.head_ref, 'ai/tests/') &&
+      contains(github.event.pull_request.labels.*.name, 'ai:reviewed') &&
+      !contains(github.event.pull_request.labels.*.name, 'override:block') &&
+      (
+        contains(github.event.pull_request.labels.*.name, 'override:merge') ||
+        (
+          (
+            contains(github.event.pull_request.labels.*.name, 'risk:low') ||
+            contains(github.event.pull_request.labels.*.name, 'risk:medium')
+          ) &&
+          !contains(github.event.pull_request.labels.*.name, 'ai:block')
+        )
+      )
     runs-on: ubuntu-latest
 
     permissions:
