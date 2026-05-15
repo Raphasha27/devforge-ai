@@ -1,0 +1,44 @@
+version: "3.0"
+
+risk_scoring:
+  high:
+    - ".github/workflows/"
+    - "Dockerfile"
+    - "docker-compose.yml"
+    - "governance/"
+    - "scripts/install/"
+    - "cmd/gitflow/internal/governance/"
+    - "compliance_exports/"
+  medium:
+    - "scripts/"
+    - "cmd/gitflow/"
+    - "configs/"
+    - "knowledge/"
+  low:
+    - "docs/"
+    - "README.md"
+    - "academy/"
+    - "examples/"
+
+approval_policy:
+  risk:low: 0
+  risk:medium: 1
+  risk:high: 2
+
+blocked_keywords:
+  - "write-all"
+  - "token="
+  - "secrets."
+  - "curl | bash"
+  - "chmod 777"
+  - "sudo rm -rf"
+
+required_checks:
+  - "Policy Gate"
+  - "Security Scan"
+  - "Coverage Gate"
+
+dashboard:
+  enable_pages: true
+  theme: "enterprise-dark"
+  refresh_mode: "weekly"

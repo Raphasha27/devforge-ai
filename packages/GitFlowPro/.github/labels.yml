@@ -1,0 +1,27 @@
+- name: "risk:low"
+  color: "2ecc71"
+  description: "Low risk PR"
+
+- name: "risk:medium"
+  color: "f1c40f"
+  description: "Medium risk PR"
+
+- name: "risk:high"
+  color: "e74c3c"
+  description: "High risk PR"
+
+- name: "ai:reviewed"
+  color: "3498db"
+  description: "Reviewed by RepoPilot AI"
+
+- name: "ai:block"
+  color: "000000"
+  description: "Blocked by RepoPilot AI (critical risk detected)"
+
+- name: "override:merge"
+  color: "8e44ad"
+  description: "Manually allow auto merge"
+
+- name: "override:block"
+  color: "c0392b"
+  description: "Manually block auto merge"

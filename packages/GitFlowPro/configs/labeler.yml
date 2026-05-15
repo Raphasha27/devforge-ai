@@ -1,0 +1,25 @@
+# GitFlowPro Labeler Configuration
+
+Go:
+  - changed-files:
+      - any-glob-to-any-file: ["**/*.go", "go.mod", "go.sum"]
+
+Python:
+  - changed-files:
+      - any-glob-to-any-file: ["**/*.py", "requirements.txt"]
+
+Node:
+  - changed-files:
+      - any-glob-to-any-file: ["**/*.js", "**/*.ts", "**/*.tsx", "package.json"]
+
+Documentation:
+  - changed-files:
+      - any-glob-to-any-file: ["docs/**", "**/*.md"]
+
+CI/CD:
+  - changed-files:
+      - any-glob-to-any-file: [".github/workflows/**"]
+
+Tools:
+  - changed-files:
+      - any-glob-to-any-file: ["cmd/**", "scripts/**"]
