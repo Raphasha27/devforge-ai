@@ -101,6 +101,7 @@ def generate_html(repos_data):
             font-weight: 800;
             background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
             letter-spacing: -1px;
         }}
@@ -222,9 +223,6 @@ def generate_html(repos_data):
             background: #333;
         }}
 
-        .indicator.active {{
-            /* Box-shadow applied dynamically */
-        }}
 
         .footer {{
             padding: 40px 60px;
