@@ -1,0 +1,13 @@
+{
+  "venvPath": ".",
+  "venv": "venv",
+  "extraPaths": ["."],
+  "pythonVersion": "3.11",
+  "reportMissingModuleSource": "none",
+  "reportMissingImports": "none",
+  "reportGeneralTypeIssues": "none",
+  "reportUndefinedVariable": "none",
+  "reportUnusedImport": "none",
+  "reportOptionalMemberAccess": "none",
+  "reportAttributeAccessIssue": "none"
+}
