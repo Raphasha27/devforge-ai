@@ -84,6 +84,20 @@ DevForge follows an **Audit-First**, **Financial-Safe**, and **Self-Healing** ph
     <img src="https://img.shields.io/badge/▶_Play_AI_Snake-0EA5E9?style=for-the-badge&logo=javascript&logoColor=white" />
   </a>
 </p>
+## Product Ladder
 
----
-*Forging the future of open-source through swarm intelligence.*
+```
+GitHub (this repo)
+    ↓
+Portfolio → https://raphasha27.github.io/raphasha-dev-portfolio
+    ↓
+Case Study → (coming soon)
+    ↓
+Live Demo → (check the badges above)
+    ↓
+Contact → https://github.com/Raphasha27
+```
+
+Part of the [Kirov Dynamics Technology](https://github.com/Raphasha27) ecosystem.
+
+**Built by Koketso Raphasha — Practical AI for Africa**
