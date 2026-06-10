@@ -1,16 +1,16 @@
 # Security Policy
 
 ## Supported Versions
-We actively maintain security patches for:
 
-| Version | Supported |
-| :--- | :---: |
-| v1.0.0+ | 🟢 Yes |
+Currently, only the latest version of this project is supported with security updates.
+
+| Version | Supported          |
+| ------- | ------------------ |
+| 1.x.x   | :white_check_mark: |
+| < 1.0   | :x:                |
 
 ## Reporting a Vulnerability
-**Please do not report vulnerabilities publicly through Github Issues.** 
 
-Report all vulnerabilities privately to:
-- **Email**: 402106633@my.richfield.ac.za
+Please report any security vulnerabilities by opening a Security Advisory or emailing the repository maintainer directly. We take all security issues seriously and will respond within 48 hours.
 
-We will acknowledge receipt within 48 hours and work with you to patch the issue before public disclosure.
+Do not open a public issue for zero-day vulnerabilities.
