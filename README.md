@@ -101,3 +101,8 @@ Contact → https://github.com/Raphasha27
 Part of the [Kirov Dynamics](https://github.com/Raphasha27/kirov-dynamics) ecosystem.
 
 **Built by Koketso Raphasha — Practical AI for Africa**
+---
+## 💸 Zero-Capital Architecture
+> **This project is engineered to bootstrap itself.** 
+> If premium API funding (e.g., OpenAI, AWS) is unavailable, the core engines automatically failover to a highly optimized **Zero-Cost Engine** utilizing free-tier APIs (Groq, HuggingFace) and local SQLite databases. We build without blockers.
+---
