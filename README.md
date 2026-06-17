@@ -106,3 +106,17 @@ Part of the [Kirov Dynamics](https://github.com/Raphasha27/kirov-dynamics) ecosy
 > **This project is engineered to bootstrap itself.** 
 > If premium API funding (e.g., OpenAI, AWS) is unavailable, the core engines automatically failover to a highly optimized **Zero-Cost Engine** utilizing free-tier APIs (Groq, HuggingFace) and local SQLite databases. We build without blockers.
 ---
+
+
+## Architecture
+
+```mermaid
+graph LR
+    USER[User] --> API[FastAPI]
+    API --> PROC[Processor]
+    PROC --> DB[(Database)]
+    API --> AUTH[Auth Layer]
+    PROC --> AI[AI/ML Engine]
+```
+
+Microservices-based architecture with API Gateway, authentication layer, PostgreSQL persistence, and event-driven communication.
