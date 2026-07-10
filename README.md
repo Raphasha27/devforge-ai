@@ -1,3 +1,6 @@
+[![CI](https://github.com/Raphasha27/devforge-ai/actions/workflows/ci.yml/badge.svg)](https://github.com/Raphasha27/devforge-ai/actions/workflows/ci.yml)
+[![CI Python](https://github.com/Raphasha27/devforge-ai/actions/workflows/ci-python.yml/badge.svg)](https://github.com/Raphasha27/devforge-ai/actions/workflows/ci-python.yml)
+
 # ⚡ DevForge AI: Swarm-Powered Autonomous Product Studio
 
 **DevForge AI** is a flagship, multi-agent ecosystem designed to automate the full lifecycle of high-value developer tools. It operates as a simulated engineering organization, combining **Swarm Intelligence**, **Market Discovery**, and **Autonomous Reliability** to build, maintain, and scale a portfolio of open-source projects.
