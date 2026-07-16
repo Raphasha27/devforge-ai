@@ -17,7 +17,7 @@
 
 DevForge is now powered by a **Ruflo-inspired swarm architecture**, moving beyond single-agent interactions into a coordinated "Nervous System" for repository management.
 
-### 🧠 1. Neural Intelligence Layer (`NeuralMemory`)
+### 🧠 1. intelligent Intelligence Layer (`intelligentMemory`)
 Persistent agent intelligence mimicking **RuVector**. It stores "Winning Patterns" and "Failure Modes" across sessions, allowing the swarm to learn from every successful mutation and build failure.
 
 ### 🗳️ 2. Swarm Consensus Engine (`SwarmConsensus`)
@@ -39,7 +39,7 @@ The system doesn't just react to trends—it creates markets. The **Market Strat
 
 A high-fidelity, cinematic interface for real-time monitoring of your autonomous empire.
 
-- **Neural Layer Display**: Live monitoring of successful agent patterns and intelligence growth.
+- **intelligent Layer Display**: Live monitoring of successful agent patterns and intelligence growth.
 - **Market Dominance Map**: Real-time tracking of discovered "Blue Ocean" opportunities.
 - **API Quota Gauge**: Financial safety layer monitoring real-time API costs and budget usage.
 - **Viral Growth Engine**: Visual tracking of automated marketing campaigns and SEO taglines.
@@ -123,3 +123,4 @@ graph LR
 ```
 
 Microservices-based architecture with API Gateway, authentication layer, PostgreSQL persistence, and event-driven communication.
+
