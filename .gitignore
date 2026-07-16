@@ -57,3 +57,8 @@ target/
 Thumbs.db
 *.log
 *.pid
+
+node_modules/
+__pycache__/
+*.pyc
+.env
