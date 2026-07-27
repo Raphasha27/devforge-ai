@@ -22,6 +22,6 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
-          context: .
+          context: ./backend
           push: true
           tags: ghcr.io/raphasha27/devforge-ai:latest
