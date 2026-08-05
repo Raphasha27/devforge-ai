@@ -1,6 +1,7 @@
 # pyright: reportMissingImports=false
 # pyright: reportGeneralTypeIssues=false
 import os
+import urllib.parse
 import requests
 from dotenv import load_dotenv
 from fastapi import FastAPI, Request
@@ -71,15 +72,21 @@ async def handle_pr(payload: dict):
     }
 
 
+SAFE_DIFF_HOSTS = {"api.github.com", "github.com"}
+
+
 def fetch_pr_diff(diff_url: str) -> str:
     if not diff_url or not GITHUB_TOKEN:
+        return ""
+    parsed = urllib.parse.urlparse(diff_url)
+    if parsed.scheme != "https" or parsed.netloc not in SAFE_DIFF_HOSTS or not parsed.path.startswith("/repos/"):
         return ""
     headers = {
         "Authorization": f"token {GITHUB_TOKEN}",
         "Accept": "application/vnd.github.v3.diff",
     }
     try:
-        resp = requests.get(diff_url, headers=headers)
+        resp = requests.get(parsed.geturl(), headers=headers, timeout=15)
         if resp.status_code == 200:
             return resp.text
         return ""
