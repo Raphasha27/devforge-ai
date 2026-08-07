@@ -93,6 +93,8 @@ def generate_html(repos_data):
             position: sticky;
             top: 0;
             z-index: 100;
+            flex-wrap: wrap;
+            gap: 16px;
         }}
 
         .logo {{
@@ -109,6 +111,7 @@ def generate_html(repos_data):
         .stats-bar {{
             display: flex;
             gap: 30px;
+            flex-wrap: wrap;
         }}
 
         .stat-item {{
@@ -134,7 +137,7 @@ def generate_html(repos_data):
 
         .grid {{
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(min(350px, 100%), 1fr));
             gap: 25px;
         }}
 
@@ -246,6 +249,49 @@ def generate_html(repos_data):
             display: inline-block;
             margin-right: 8px;
             animation: pulse 2s infinite;
+        }}
+
+        /* ── Mobile-first responsiveness ─────────── */
+        @media (max-width: 900px) {{
+            header {{
+                flex-wrap: wrap;
+                gap: 16px;
+                padding: 20px 24px;
+            }}
+            .stats-bar {{
+                flex-wrap: wrap;
+                gap: 16px 24px;
+            }}
+            .stat-item {{
+                text-align: left;
+            }}
+        }}
+
+        @media (max-width: 600px) {{
+            html, body {{
+                overflow-x: hidden;
+            }}
+            header {{
+                padding: 18px 16px;
+            }}
+            main {{
+                padding: 32px 16px;
+            }}
+            .footer {{
+                padding: 32px 16px;
+            }}
+            .logo {{
+                font-size: 1.8rem;
+            }}
+            .stats-bar {{
+                width: 100%;
+                justify-content: space-between;
+            }}
+            .repo-health,
+            .repo-meta {{
+                flex-wrap: wrap;
+                gap: 10px;
+            }}
         }}
     </style>
 </head>
