@@ -132,3 +132,8 @@ graph LR
 
 Microservices-based architecture with API Gateway, authentication layer, PostgreSQL persistence, and event-driven communication.
 
+## Contributors
+
+This project is developed and maintained together with the team:
+- [Raphasha27](https://github.com/Raphasha27) — Project lead & maintainer
+- [DkMash](https://github.com/DkMash) — Teammate
